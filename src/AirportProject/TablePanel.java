@@ -24,7 +24,11 @@ public class TablePanel extends JPanel {
     GraphPanel graphPanel;
 
     public TablePanel() {
-       
+        int frame_size_width = 900;               //프레임의 가로 크기
+        int frame_size_height = frame_size_width/12*8;   //프레임의 세로 크기
+        int top_panel_height = 100;   //상단 검색 바 고정 높이
+        int change_panel_height = frame_size_height - top_panel_height;   //상단 바를 제외한 바뀌는 Panel의 고정 높이
+        
         String[] a = { "Country","city", "AirportCode", "AirportName", "Travel More" };
         String[][] b = {
                 { "대한민국","","INC", "인천국제공함" },
@@ -43,15 +47,16 @@ public class TablePanel extends JPanel {
         sc = new JScrollPane(table);
         add(sc);
 
+        //datatablePanel.setBounds(0, 0, frame_size_width-10, change_panel_height-10);
         datatablePanel.setVisible(false);
         DefaultTableModel m = (DefaultTableModel) table.getModel();
         // 맨 마지막 줄에 행 추가
 
         table.getColumnModel().getColumn(4).setCellRenderer(new TableCell());
         table.getColumnModel().getColumn(4).setCellEditor(new TableCell());
-
-        setBounds(0, 0, 500, 300);
-
+        
+        //setBounds(0, 0, frame_size_width-10, change_panel_height-10);
+        //setPreferred(frame_size_width-10, change_panel_height-10);
     }
 
     @SuppressWarnings("rawtypes")

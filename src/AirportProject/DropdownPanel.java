@@ -12,6 +12,12 @@ public class DropdownPanel extends JPanel {
 
     public DropdownPanel() {
 
+        int frame_size_width = 900;               //프레임의 가로 크기
+        int frame_size_height = frame_size_width/12*8;   //프레임의 세로 크기
+        int top_panel_height = 100;   //상단 검색 바 고정 높이
+        
+        int bottom_empty = top_panel_height/3;	//top_panel_height의 위아래 공백 기준
+        
         this.country = new JComboBox<>();
         this.continent = new JComboBox<>();
         this.airport = new JComboBox<>();
@@ -27,11 +33,13 @@ public class DropdownPanel extends JPanel {
         for (String str : airportArr) {
             airport.addItem(str);
         }
-        country.setMaximumSize(new Dimension(115, 100));
-        continent.setMaximumSize(new Dimension(115, 100));
-        airport.setMaximumSize(new Dimension(115, 100));
+       
+        continent.setPreferredSize(new Dimension(100, bottom_empty));
+        country.setPreferredSize(new Dimension(100, bottom_empty));
+        airport.setPreferredSize(new Dimension(100, bottom_empty));
 
         this.dropdownBtn = new JButton("검색");
+        dropdownBtn.setPreferredSize(new Dimension(60, bottom_empty));
 
         this.add(continent);
         this.add(country);
