@@ -24,9 +24,15 @@ public class MainFrameV2 extends JFrame {
     DataTablePanel datatablePanel;
 
     public MainFrameV2() {
-
+    	/****
+    	int frame_size_width = 900;               //프레임의 가로 크기
+        int frame_size_height = frame_size_width/12*8;   //프레임의 세로 크기
+        int top_panel_height = 100;   //상단 검색 바 고정 높이
+        int change_panel_height = frame_size_height - top_panel_height;   //상단 바를 제외한 바뀌는 Panel의 고정 높이
+        int bottom_empty = top_panel_height/3;	//top_panel_height의 위아래 공백 기준
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 900, 499);
+        setBounds(100, 100, frame_size_width, frame_size_height);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -44,8 +50,10 @@ public class MainFrameV2 extends JFrame {
         jPanel1.add(dropdownPanel);
         jPanel1.add(searchPanel);
         contentPane.add(jPanel1);
+        
+        tabletestPanel.setBounds(0, 0, frame_size_width, change_panel_height);
 
-       JPanel jPanel2 = new JPanel();
+        JPanel jPanel2 = new JPanel();
         jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.X_AXIS));
         jPanel2.add(tabletestPanel);
         contentPane.add(jPanel2);
@@ -81,5 +89,6 @@ public class MainFrameV2 extends JFrame {
 class Main4 {
     public static void main(String[] args) {
         MainFrameV2 mainFrameV2 = new MainFrameV2();
+    ***/
     }
 }

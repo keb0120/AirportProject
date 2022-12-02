@@ -46,7 +46,7 @@ public class Airport2 {
       frame.setSize(frame_size_width, frame_size_height);      //프레임 크기
       frame.setLocationRelativeTo(null);   //프레임 실행 시 화면 정가운데에서 시작
       frame.setResizable(false);         //사용자가 프레임 크기 조정할 수 없게 설정
-      //frame.setLayout(null);
+      frame.setLayout(null);
       frame.setLayout(new GridLayout(1, 1)); 
       
       panel.setLayout(null);            //Layout은 null로 해야 크기 조정 가능
@@ -78,29 +78,19 @@ public class Airport2 {
       travel_more_top_panel.add(travel_more_top_label);
       travel_more_top_panel.add(travel_more_top_label2);
       
-      //travel_more_top_label.setForeground(Color.white);
-      //ravel_more_top_label2.setForeground(Color.white);
-      
-      //testCode
-      before_search_panel.setBackground(Color.pink);
-
-      
       before_search_panel.add(before_search_label);   //test용 label. 이후 추가하면 삭제
       before_search_panel.setBounds(0, top_panel_height, frame_size_width, change_panel_height);
       
       tablePanel = new TablePanel();
       JPanel2.setLayout(null);
       JPanel2.setBounds(0, top_panel_height, frame_size_width, change_panel_height);
-      //JPanel2.setPreferredSize(new Dimension(frame_size_width,change_panel_height));
-      JPanel2.setBackground(Color.DARK_GRAY);
-      tablePanel.setBackground(Color.GREEN);
+      JPanel2.setPreferredSize(new Dimension(frame_size_width, change_panel_height));
       tablePanel.setBounds(0, 0, frame_size_width, change_panel_height);	//표 크기 설정 최대로
       JPanel2.add(tablePanel);     
       JPanel2.setVisible(true);
       tablePanel.setVisible(false);
       
       travel_more_panel.setBounds(0, top_panel_height, frame_size_width, change_panel_height);
-      //travel_more_panel.setBackground(Color.YELLOW);
       travel_more_panel.add(travel_more_label);      //test용 label. 표 추가하면 삭제
       
       //test용 label들 가운데 정렬

@@ -6,7 +6,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.AbstractCellEditor;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -42,21 +46,20 @@ public class TablePanel extends JPanel {
         datatablePanel = new DataTablePanel();
         
         graphPanel = new GraphPanel();
-       
 
         sc = new JScrollPane(table);
+        //검색 화면 표 크기 수정
+        sc.setPreferredSize(new Dimension(frame_size_width,change_panel_height));
         add(sc);
 
-        //datatablePanel.setBounds(0, 0, frame_size_width-10, change_panel_height-10);
+        datatablePanel.setPreferredSize(new Dimension(frame_size_width,change_panel_height));
         datatablePanel.setVisible(false);
         DefaultTableModel m = (DefaultTableModel) table.getModel();
         // 맨 마지막 줄에 행 추가
 
+        //table은 표에 들어가는 행 나타냄
         table.getColumnModel().getColumn(4).setCellRenderer(new TableCell());
         table.getColumnModel().getColumn(4).setCellEditor(new TableCell());
-        
-        //setBounds(0, 0, frame_size_width-10, change_panel_height-10);
-        //setPreferred(frame_size_width-10, change_panel_height-10);
     }
 
     @SuppressWarnings("rawtypes")
@@ -66,6 +69,7 @@ public class TablePanel extends JPanel {
         add(datatablePanel);
         datatablePanel.setVisible(true);
         
+        //용도 모르겠음
         graphPanel.setVisible(true);
     }
 
