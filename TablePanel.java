@@ -24,7 +24,7 @@ import javax.swing.table.TableCellRenderer;
 public class TablePanel extends JPanel {
 	static int i=0;
 	static final int NAIRPORTS = 2603;
-	static final int NCOL = 3;
+	static final int NCOL = 4;
     private DefaultTableModel model;
     private JTable table;
     private JScrollPane sc;
@@ -42,13 +42,15 @@ public class TablePanel extends JPanel {
 
     @SuppressWarnings("rawtypes")
 
-    public void JTableTravelMore() {
+    public void JTableTravelMore(String paramAirportCode) {
         sc.setVisible(false);
+        datatablePanel = new DataTablePanel(paramAirportCode);
+//        datatablePanel = new DataTablePanel();
         add(datatablePanel);
         datatablePanel.setVisible(true);
-        
-        //용도 모르겠음
         graphPanel.setVisible(true);
+        revalidate();
+        repaint();
     }
 
    public void deleteDatatablePanel() {
@@ -58,11 +60,14 @@ public class TablePanel extends JPanel {
 
     class TableCell extends AbstractCellEditor implements TableCellEditor, TableCellRenderer {
         JButton jb;
-
+        String nearbyAirportCode;
         public TableCell() {
             jb = new JButton("travel More");
             jb.addActionListener(e -> {
-                JTableTravelMore();
+            	nearbyAirportCode = (String) table.getValueAt(table.getSelectedRow(), 2);
+                JTableTravelMore(nearbyAirportCode);
+                revalidate();
+                repaint();
             });
         }
 
@@ -101,7 +106,7 @@ public class TablePanel extends JPanel {
             	data2[i][0] = alist[i].getKorNation();
             	data2[i][1] = alist[i].getEngCity();
             	data2[i][2] = alist[i].getICAOCode();
-//            	data2[i][3] = alist[i].getKorName();
+            	data2[i][3] = alist[i].getKorName();
             }
 	
 	        model = new DefaultTableModel(data2, header);
@@ -136,7 +141,7 @@ public class TablePanel extends JPanel {
             	data2[i][0] = alist[i].getKorNation();
             	data2[i][1] = alist[i].getEngCity();
             	data2[i][2] = alist[i].getICAOCode();
-//            	data2[i][3] = alist[i].getKorName();
+            	data2[i][3] = alist[i].getKorName();
             }
 	
 	        model = new DefaultTableModel(data2, header);

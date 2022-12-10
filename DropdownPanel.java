@@ -74,9 +74,9 @@ public class DropdownPanel extends JPanel {
 		});
 
         this.dropdownBtn = new JButton("검색");
-
-        this.add(country);
+        
         this.add(continent);
+        this.add(country);
         this.add(airport);
         this.add(dropdownBtn);
     }
